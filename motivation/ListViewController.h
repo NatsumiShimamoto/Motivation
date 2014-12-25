@@ -16,6 +16,8 @@
     IBOutlet UILabel *dateLabel;
     int i;
     
+    
+    
     UIImageView *imgView;
     UILabel *accidentLabel;
     UILabel *goalLabel;
@@ -27,6 +29,8 @@
     
     NSMutableArray *accidentArr;
     NSMutableArray *goalArr;
+    
+    int currentTag;
 }
 
 -(IBAction)back;

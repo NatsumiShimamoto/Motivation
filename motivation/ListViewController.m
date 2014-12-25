@@ -49,7 +49,6 @@
         NSLog(@"i is %d",i);
         
         
-        
         // dateLabel.text = [NSString stringWithFormat:@"%@",dateText];
         
         
@@ -65,6 +64,11 @@
 -(void)datePushed:(UIButton *)sender{
     // int buttonTag = dateButton.tag;
     // dateButton.tag = i + 1;
+   
+    
+    
+    NSLog(@"sender is %d",sender.tag);
+    NSLog(@"current is %d",currentTag);
     
     if(!imgView){
         // タッチされたときの処理
@@ -83,13 +87,26 @@
         
         [self.view addSubview:accidentLabel];
         [self.view addSubview:goalLabel];
+        NSLog(@"↑初めて");
         
         
     }
     
-    else{
+    else if(imgView && currentTag == sender.tag){
         
+               
+        [imgView removeFromSuperview];
+        imgView = nil;
+        [accidentLabel removeFromSuperview];
+        accidentLabel = nil;
+        [goalLabel removeFromSuperview];
+        goalLabel = nil;
         
+        NSLog(@"↑これ消える");
+        
+    }else{
+    
+       
         [imgView removeFromSuperview];
         imgView = nil;
         [accidentLabel removeFromSuperview];
@@ -98,19 +115,28 @@
         goalLabel = nil;
         
         
+        imgView = [[UIImageView alloc] initWithFrame:CGRectMake(sender.frame.origin.x,sender.frame.origin.y+50,120, 90)];
+        
+        imgView.backgroundColor = [UIColor redColor];
+        
+        [self.view addSubview:imgView];
+
         
         accidentLabel = [[UILabel alloc]initWithFrame:CGRectMake(sender.frame.origin.x+10,sender.frame.origin.y+50, 90, 30)];
-        accidentLabel.text = [NSString stringWithFormat:@"%@",accidentArr[dateButton.tag-1]];
+        accidentLabel.text = [NSString stringWithFormat:@"%@",accidentArr[sender.tag-1]];
         
-        
+      
         goalLabel =[[UILabel alloc]initWithFrame:CGRectMake(sender.frame.origin.x+10,sender.frame.origin.y+70, 90, 30)];
-        goalLabel.text = [NSString stringWithFormat:@"%@",goalArr[dateButton.tag-1]];
+        goalLabel.text = [NSString stringWithFormat:@"%@",goalArr[sender.tag-1]];
         
         
-        [imgView addSubview:accidentLabel];
-        [imgView addSubview:goalLabel];
+        [self.view addSubview:accidentLabel];
+        [self.view addSubview:goalLabel];
+        
+        NSLog(@"↑変わる");
         
     }
+    currentTag = sender.tag;
 }
 
 

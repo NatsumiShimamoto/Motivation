@@ -103,7 +103,7 @@
 
 -(IBAction)hozon{
     
-   
+    
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     NSString *formatString = [NSDateFormatter dateFormatFromTemplate:@"MMMdd" options:0 locale:[NSLocale currentLocale]];
     dateFormatter.dateFormat = formatString;
@@ -111,24 +111,24 @@
     
     formattedDateString = [dateFormatter stringFromDate:date];
     NSLog(@"%@", formattedDateString);
-
+    
     
     NSDictionary *contents = [NSDictionary dictionaryWithObjectsAndKeys:
                               textField.text,@"accident",
                               goalTField.text,@"goal",
-                            formattedDateString,@"date",
+                              formattedDateString,@"date",
                               nil];
     
     
     NSLog(@"%@",contents[@"date"]);
     
-
+    
     [conMArr addObject:contents];
     
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults]; //UserDefaultsのデータ領域の一部をudとおく
     [ud setObject:conMArr forKey:@"ud"];//udにhogeでmarrayをセットして保存
     
-   
+    
     [ud synchronize]; //UserDefaultsに即時反映
     
     
@@ -137,9 +137,10 @@
     ListViewController *listVC = [self.storyboard instantiateViewControllerWithIdentifier:@"list"];
     [self presentViewController:listVC animated:YES completion:nil];
     
-    
+    textField.text = @"";
+    goalTField.text = @"";
 }
-    
+
 
 
 @end
