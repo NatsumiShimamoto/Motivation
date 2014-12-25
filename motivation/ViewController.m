@@ -107,7 +107,6 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     NSString *formatString = [NSDateFormatter dateFormatFromTemplate:@"MMMdd" options:0 locale:[NSLocale currentLocale]];
     dateFormatter.dateFormat = formatString;
- 
     NSDate *date = [NSDate date];
     
     formattedDateString = [dateFormatter stringFromDate:date];

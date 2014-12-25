@@ -15,8 +15,21 @@
     NSArray *contentsMArr;
     IBOutlet UILabel *dateLabel;
     int i;
+    
+    UIImageView *imgView;
+    UILabel *accidentLabel;
+    UILabel *goalLabel;
+    
+    NSString *accidentText;
+    NSString *goalText;
+    
+    UIButton *dateButton;
+    
+    NSMutableArray *accidentArr;
+    NSMutableArray *goalArr;
 }
 
 -(IBAction)back;
+-(void)datePushed:(id)sender;
 
 @end

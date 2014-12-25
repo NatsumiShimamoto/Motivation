@@ -23,75 +23,98 @@
     
     contentsMArr = [ud objectForKey:@"ud"]; //取り出し
     NSLog(@"あああああ");
+    accidentArr = [[NSMutableArray alloc] init];
+    goalArr = [[NSMutableArray alloc] init];
+    
     
     for(i = 0; i < [contentsMArr count]; i++){
         NSLog(@"ぱっ");
         NSLog(@"iは%d",i);
-        dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(10+(50*i), 100, 90, 30)];
-        dateLabel.userInteractionEnabled = YES;
+        //dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(10+(50*i), 100, 90, 30)];
+        //dateLabel.userInteractionEnabled = YES;
         
-        UILabel *accidentLabel = [[UILabel alloc]initWithFrame:CGRectMake(10+(50*i), 100, 90, 30)];
-        UILabel *goalLabel =[[UILabel alloc]initWithFrame:CGRectMake(10+(50*i), 110, 90, 30)];
-        
-        
-        
+        dateButton = [[UIButton alloc] initWithFrame:CGRectMake(10+(100*i), 100, 90, 30)];
+        dateButton.backgroundColor = [UIColor redColor];
         NSString *dateText  = contentsMArr[i][@"date"];
-        NSString *accidentText  = contentsMArr[i][@"accident"];
-        NSString *goalText  = contentsMArr[i][@"goal"];
+        [dateButton setTitle:dateText forState:UIControlStateNormal];
         
-        accidentLabel.text = [NSString stringWithFormat:@"%@",accidentText];
-        goalLabel.text = [NSString stringWithFormat:@"%@",goalText];
-
+        NSLog(@"date is %@",dateText);
+        NSLog(@"date is %@",dateButton.titleLabel.text);
+        dateButton.tag = i+1;
         
+        [self.view addSubview:dateButton];
+        
+        [dateButton addTarget:self action:@selector(datePushed:) forControlEvents:UIControlEventTouchUpInside];
         
         NSLog(@"i is %d",i);
-        dateLabel.text = [NSString stringWithFormat:@"%@",dateText];
         
         
-        [self.view addSubview:dateLabel];
-        [self.view addSubview:accidentLabel];
-        [self.view addSubview:goalLabel];
-
+        
+        // dateLabel.text = [NSString stringWithFormat:@"%@",dateText];
+        
+        
+        accidentArr[i] = contentsMArr[i][@"accident"];
+        goalArr[i] = contentsMArr[i][@"goal"];
         
     }
     
     [ud synchronize]; //UserDefaultsに即時反映
-    
-
 }
 
 
-/*
- - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
- {
- // タッチされたときの処理
- UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(dateLabel.frame.origin.x,dateLabel.frame.origin.y+30,120, 90)];
- imgView.backgroundColor = [UIColor blackColor];
- 
- [self.view addSubview:imgView];
- 
- 
- NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
- 
- contentsMArr = [ud objectForKey:@"ud"];//取り出し
- 
- 
- UILabel *accidentLabel = [[UILabel alloc]initWithFrame:CGRectMake(10+(50*i), 100, 90, 30)];
- UILabel *goalLabel =[[UILabel alloc]initWithFrame:CGRectMake(10+(50*i), 110, 90, 30)];
- 
- 
- NSString *accidentText  = conMArr[i][@"accident"];
- NSString *goalText  = conMArr[i][@"goal"];
- 
- accidentLabel.text = [NSString stringWithFormat:@"%@",accidentText];
- goalLabel.text = [NSString stringWithFormat:@"%@",goalText];
- 
- [imgView addSubview:accidentLabel];
- [imgView addSubview:goalLabel];
- 
- }
- 
- */
+-(void)datePushed:(UIButton *)sender{
+    // int buttonTag = dateButton.tag;
+    // dateButton.tag = i + 1;
+    
+    if(!imgView){
+        // タッチされたときの処理
+        imgView = [[UIImageView alloc] initWithFrame:CGRectMake(sender.frame.origin.x,sender.frame.origin.y+50,120, 90)];
+        
+        imgView.backgroundColor = [UIColor redColor];
+        
+        [self.view addSubview:imgView];
+        
+        
+        accidentLabel = [[UILabel alloc]initWithFrame:CGRectMake(sender.frame.origin.x+10,sender.frame.origin.y+50, 90, 30)];
+        accidentLabel.text = [NSString stringWithFormat:@"%@",accidentArr[sender.tag-1]];
+        
+        goalLabel =[[UILabel alloc]initWithFrame:CGRectMake(sender.frame.origin.x+10,sender.frame.origin.y+70, 90, 30)];
+        goalLabel.text = [NSString stringWithFormat:@"%@",goalArr[sender.tag-1]];
+        
+        [self.view addSubview:accidentLabel];
+        [self.view addSubview:goalLabel];
+        
+        
+    }
+    
+    else{
+        
+        
+        [imgView removeFromSuperview];
+        imgView = nil;
+        [accidentLabel removeFromSuperview];
+        accidentLabel = nil;
+        [goalLabel removeFromSuperview];
+        goalLabel = nil;
+        
+        
+        
+        accidentLabel = [[UILabel alloc]initWithFrame:CGRectMake(sender.frame.origin.x+10,sender.frame.origin.y+50, 90, 30)];
+        accidentLabel.text = [NSString stringWithFormat:@"%@",accidentArr[dateButton.tag-1]];
+        
+        
+        goalLabel =[[UILabel alloc]initWithFrame:CGRectMake(sender.frame.origin.x+10,sender.frame.origin.y+70, 90, 30)];
+        goalLabel.text = [NSString stringWithFormat:@"%@",goalArr[dateButton.tag-1]];
+        
+        
+        [imgView addSubview:accidentLabel];
+        [imgView addSubview:goalLabel];
+        
+    }
+}
+
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -99,7 +122,12 @@
 
 -(IBAction)back{
     [self dismissViewControllerAnimated:YES completion:nil];
+    //textField = nil;
+    //goalTField = nil;
+    textField = [[UITextField alloc] init];
+    goalTField = [[UITextField alloc] init];
     
 }
+
 
 @end
