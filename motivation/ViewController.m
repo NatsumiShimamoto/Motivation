@@ -24,14 +24,14 @@
     
     conMArr = [[NSMutableArray alloc] init];
     
-    
-    /* textFieldのサイズ変更 */
-    CGRect textFieldFrame= textField.frame;
-    textField.frame = CGRectMake(textFieldFrame.origin.x, textFieldFrame.origin.y,
-                                 textFieldFrame.size.width, textFieldFrame.size.height+100);
-    // 枠線のスタイルを設定
+     // 枠線のスタイルを設定
     textField.borderStyle = UITextBorderStyleRoundedRect;
     goalTField.borderStyle = UITextBorderStyleRoundedRect;
+
+    /* textFieldのサイズ変更 */
+    CGRect textFieldFrame= textField.frame;
+    textFieldFrame = CGRectMake(textFieldFrame.origin.x, textFieldFrame.origin.y,
+                                 textFieldFrame.size.width, textFieldFrame.size.height+100);
     
     // ラベルのテキストのフォントを設定
     textField.font = [UIFont fontWithName:@"Helvetica" size:14];
@@ -51,6 +51,8 @@
     // デリゲートを設定
     textField.delegate = self;
     goalTField.delegate = self;
+    
+    segLevel = 1;
     
     // UITextFieldのインスタンスをビューに追加
     [self.view addSubview:textField];
@@ -117,6 +119,7 @@
                               textField.text,@"accident",
                               goalTField.text,@"goal",
                               formattedDateString,@"date",
+                              [NSNumber numberWithInt:segLevel],@"level",
                               nil];
     
     
@@ -139,8 +142,21 @@
     
     textField.text = @"";
     goalTField.text = @"";
+    
+    
+    
+    [ud setObject:numberArr forKey:@"numberArr"];
+
+    
+    
 }
 
 
 
+- (IBAction)SegChanged:(UISegmentedControl *)sender
+{
+    
+    segLevel = (int)sender.selectedSegmentIndex+1; //tag1のSegmentedControlが選択されたら、選択された値をkigenNumに入れる
+    NSLog(@"level is %d",segLevel);
+}
 @end

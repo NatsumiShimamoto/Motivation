@@ -12,10 +12,12 @@
     IBOutlet UITextField *textField;
     IBOutlet UITextField *goalTField;
     
-    NSArray *conArray;
+
     NSMutableArray *conMArr;
-    
+    NSMutableArray *numberArr;
     NSString *formattedDateString;
+   
+    int segLevel;
 }
 
 -(IBAction)hozon;

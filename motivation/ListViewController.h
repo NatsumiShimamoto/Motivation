@@ -21,6 +21,8 @@
     UIImageView *imgView;
     UILabel *accidentLabel;
     UILabel *goalLabel;
+    UILabel *levelLabel;
+
     
     NSString *accidentText;
     NSString *goalText;
@@ -29,8 +31,17 @@
     
     NSMutableArray *accidentArr;
     NSMutableArray *goalArr;
+    NSMutableArray *levelArr;
     
+    NSMutableArray *levelNumArr;
     int currentTag;
+    int level;
+    int level1count;
+    int level2count;
+    int level3count;
+    int level4count;
+    int level5count;
+
 }
 
 -(IBAction)back;
