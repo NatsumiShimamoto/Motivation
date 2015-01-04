@@ -31,15 +31,6 @@
     
     level = 0;
     
-    //
-    //    level1count = 0;
-    //    level2count = 0;
-    //    level3count = 0;
-    //    level4count = 0;
-    //    level5count = 0;
-    //
-    
-    // array init
     for (int j = 0; j < 5; j++) {
         levelNumArr[j] = [NSNumber numberWithInt:0];
     }
@@ -64,12 +55,12 @@
             case 1:
                 levelCnt = [levelNumArr[0] intValue];
                 
-                dateButton = [[UIButton alloc] initWithFrame:CGRectMake(15+(100*levelCnt), 430, 90, 30)];
+                dateButton = [[UIButton alloc] initWithFrame:CGRectMake(23+(75.4*levelCnt), 462.5, 47, 47)];
                 
-               
-
+                [[dateButton layer] setCornerRadius:17.0];
+                
                 NSLog(@"歯入");
-
+                
                 levelNumArr[0] = [NSNumber numberWithInt:levelCnt+1];
                 
                 break;
@@ -77,17 +68,20 @@
             case 2:
                 levelCnt = [levelNumArr[1] intValue];
                 
-                dateButton = [[UIButton alloc] initWithFrame:CGRectMake(15+(100*levelCnt), 350, 90, 30)];
+                dateButton = [[UIButton alloc] initWithFrame:CGRectMake(23+(75.4*levelCnt), 364.5, 47, 47)];
+                [[dateButton layer] setCornerRadius:17.0];
+                
                 NSLog(@"おおおお");
-
+                
                 levelNumArr[1] = [NSNumber numberWithInt:levelCnt+1];
-
+                
                 
                 break;
             case 3:
                 levelCnt = [levelNumArr[2] intValue];
                 
-                dateButton = [[UIButton alloc] initWithFrame:CGRectMake(15+(100*levelCnt), 270, 90, 30)];
+                dateButton = [[UIButton alloc] initWithFrame:CGRectMake(23+(75.4*levelCnt), 266.5, 47, 47)];
+                [[dateButton layer] setCornerRadius:17.0];
                 
                 levelNumArr[2] = [NSNumber numberWithInt:levelCnt+1];
                 
@@ -95,14 +89,17 @@
             case 4:
                 levelCnt = [levelNumArr[3] intValue];
                 
-                dateButton = [[UIButton alloc] initWithFrame:CGRectMake(15+(100*levelCnt), 190, 90, 30)];
-
+                dateButton = [[UIButton alloc] initWithFrame:CGRectMake(23+(75.4*levelCnt), 168.5, 47, 47)];
+                [[dateButton layer] setCornerRadius:17.0];
+                
                 levelNumArr[3] = [NSNumber numberWithInt:levelCnt+1];
                 
                 break;
             case 5:
                 levelCnt = [levelNumArr[4] intValue];
-                dateButton = [[UIButton alloc] initWithFrame:CGRectMake(15+(100*levelCnt), 110, 90, 30)];
+                dateButton = [[UIButton alloc] initWithFrame:CGRectMake(23+(75.4*levelCnt), 70.5, 47, 47)];
+                [[dateButton layer] setCornerRadius:17.0];
+                
                 levelNumArr[4] = [NSNumber numberWithInt:levelCnt+1];
                 
                 break;

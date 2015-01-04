@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD3CD5CD1A59346900B4AC5E /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = DD3CD5CC1A59346900B4AC5E /* star.png */; };
 		DD491F5D1A49547100946DFE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DD491F5C1A49547100946DFE /* main.m */; };
 		DD491F601A49547100946DFE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DD491F5F1A49547100946DFE /* AppDelegate.m */; };
 		DD491F631A49547100946DFE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD491F621A49547100946DFE /* ViewController.m */; };
@@ -15,6 +16,7 @@
 		DD491F6B1A49547100946DFE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD491F691A49547100946DFE /* LaunchScreen.xib */; };
 		DD491F771A49547100946DFE /* motivationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DD491F761A49547100946DFE /* motivationTests.m */; };
 		DD491F821A49B4F100946DFE /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD491F811A49B4F100946DFE /* ListViewController.m */; };
+		DDA6B0561A56CF9E001B7FB5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDA6B0551A56CF9E001B7FB5 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DD3CD5CC1A59346900B4AC5E /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		DD491F571A49547100946DFE /* motivation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = motivation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD491F5B1A49547100946DFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD491F5C1A49547100946DFE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -43,6 +46,7 @@
 		DD491F761A49547100946DFE /* motivationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = motivationTests.m; sourceTree = "<group>"; };
 		DD491F801A49B4F100946DFE /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
 		DD491F811A49B4F100946DFE /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
+		DDA6B0551A56CF9E001B7FB5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDA6B0561A56CF9E001B7FB5 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +71,7 @@
 		DD491F4E1A49547000946DFE = {
 			isa = PBXGroup;
 			children = (
+				DDA6B0551A56CF9E001B7FB5 /* QuartzCore.framework */,
 				DD491F591A49547100946DFE /* motivation */,
 				DD491F731A49547100946DFE /* motivationTests */,
 				DD491F581A49547100946DFE /* Products */,
@@ -92,6 +98,7 @@
 				DD491F621A49547100946DFE /* ViewController.m */,
 				DD491F641A49547100946DFE /* Main.storyboard */,
 				DD491F671A49547100946DFE /* Images.xcassets */,
+				DD3CD5CC1A59346900B4AC5E /* star.png */,
 				DD491F691A49547100946DFE /* LaunchScreen.xib */,
 				DD491F5A1A49547100946DFE /* Supporting Files */,
 			);
@@ -205,6 +212,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD491F661A49547100946DFE /* Main.storyboard in Resources */,
+				DD3CD5CD1A59346900B4AC5E /* star.png in Resources */,
 				DD491F6B1A49547100946DFE /* LaunchScreen.xib in Resources */,
 				DD491F681A49547100946DFE /* Images.xcassets in Resources */,
 			);
@@ -422,6 +430,7 @@
 				DD491F7C1A49547100946DFE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DD491F7D1A49547100946DFE /* Build configuration list for PBXNativeTarget "motivationTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +439,7 @@
 				DD491F7F1A49547100946DFE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
